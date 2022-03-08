@@ -696,3 +696,60 @@ OUTPUT: <br>
 ****************************************************************************************************************************************
 8. Subset of sum problem using backtracking. <br>
 ****************************************************************************************************************************************
+#include <iostream> <br>
+#include <stack> <br>
+ using namespace std; <br>
+ int set[] = {12,8,4,15,5,9,20,3}; <br>
+int numberOfElements = 8, sum = 20; <br>
+ 
+class SubSet{ <br>
+public: <br>
+  stack<int> solutionSet; <br>
+  bool hasSolution; <br>
+  
+  void solve(int s, int idx){ <br>
+    if(s>sum) <br>
+        return; <br>
+    if(s==sum){ <br>
+        hasSolution = true; <br>
+        displaySolutionSet(); <br>
+        return; <br>
+    } <br>
+          for(int i=idx; i<numberOfElements; i++){ <br>
+        solutionSet.push(set[i]); <br>
+        solve(s+set[i],i+1); <br>
+        solutionSet.pop(); <br>
+    } <br>
+  } <br>
+  void displaySolutionSet(){ <br>
+        stack<int> temp; <br>
+      
+        while (!solutionSet.empty())  <br>
+        {  <br>
+            cout <<  solutionSet.top() << " ";  <br>
+            temp.push(solutionSet.top());  <br>
+            solutionSet.pop(); <br>
+        }  <br>
+        cout << '\n'; <br>
+        while (!temp.empty())  <br>
+        {  <br>
+            solutionSet.push(temp.top());  <br>
+            temp.pop(); <br>
+        } <br>
+    } <br>
+}; <br>
+ 
+int main() <br>
+{ <br>
+    SubSet ss; <br>
+    ss.solve(0,0); <br>
+	    
+	if(ss.hasSolution == false) <br>
+	    cout << "No Solution"; <br>
+ 
+    return 0; <br>
+} <br>
+	OUTPUT: <br>
+	![image](https://user-images.githubusercontent.com/97940333/157178017-577822aa-a997-486b-ae5a-f6a9bda9391d.png)
+
+	

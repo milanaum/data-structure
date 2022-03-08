@@ -752,4 +752,64 @@ int main() <br>
 	OUTPUT: <br>
 	![image](https://user-images.githubusercontent.com/97940333/157178017-577822aa-a997-486b-ae5a-f6a9bda9391d.png)
 
-	
+************************************************************************************************************************************************************
+9. Write a program to store k keys into an array of size n at the location compute using a hash function, loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique. <br>
+****************************************************************************************************************************************************************
+#include<iostream> <br>
+#include<limits.h> <br>
+using namespace std; <br>
+void Insert(int ary[],int hFn, int Size){ <br>
+    int element,pos,n=0; <br>
+cout<<"Enter key element to insert\n"; <br>
+cin>>element; <br>
+pos = element%hFn;  <br>
+while(ary[pos]!= INT_MIN) {   <br>
+if(ary[pos]== INT_MAX) <br>
+            break; <br>
+pos = (pos+1)%hFn; <br>
+n++; <br>
+if(n==Size) <br>
+            break;  <br>
+} <br>
+if(n==Size) <br>
+        cout<<"Hash table was full of elements\nNo Place to insert this element\n\n"; <br>
+else <br>
+        ary[pos] = element;  <br>  
+} <br>
+void display(int ary[],int Size){ <br>
+int i; <br>
+ 
+cout<<"Index\tValue\n"; <br>
+for(i=0;i<Size;i++) <br>
+        cout<<i<<"\t"<<ary[i]<<"\n"; <br>
+} <br>
+int main(){ <br>
+int Size,hFn,i,choice; <br>
+cout<<"Enter size of hash table\n"; <br>
+cin>>Size; <br>
+ hFn=Size; <br>
+int ary[Size]; <br>
+for(i=0;i<Size;i++) <br>
+        ary[i]=INT_MIN;  <br>
+do{ <br>
+cout<<"Enter your choice\n"; <br>
+cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n"; <br>
+cin>>choice; <br>
+switch(choice){ <br>
+case 1: <br>
+Insert(ary,hFn,Size); <br>
+break; <br>
+case 2: <br>
+display(ary,Size); <br>
+break; <br>
+default: <br>
+cout<<"Enter correct choice\n"; <br>
+break; <br>
+} <br>
+}while(choice); <br>
+return 0; <br>
+} <br>
+OUTPUT: <br>
+![image](https://user-images.githubusercontent.com/97940333/157179715-1e94a2b8-99ff-4859-8c56-ccceab41ab4c.png)
+
+

@@ -300,3 +300,54 @@ int main() <br>
 } <br>
 	OUTPUT: <br>
 	![image](https://user-images.githubusercontent.com/97940333/156981083-5b988011-39a5-4e1b-b430-ec625d22f2f4.png)
+	
+********************************************************************************************************************************************************
+6. Array using linked list. <br>
+********************************************************************************************************************************************************
+#include <iostream> <br>
+using namespace std; <br>
+struct info { <br>
+    int data; <br>
+    info* next; <br>
+}; <br>
+int main() <br>
+{ <br>
+    int size = 10; <br>
+    info** head; <br>
+    head = new info*[size]; <br>
+    for (int i = 0; i < size; ++i) { <br>
+        *(head + i) = NULL; <br>
+    } <br>
+    for (int i = 0; i < size; ++i) { <br>
+        info* prev = NULL; <br>
+        int s = 4; <br>
+  
+        while (s--) { <br>
+            info* n = new info; <br>
+            n->data = i * s; <br>
+            n->next = NULL; <br>
+            if (*(head + i) == NULL) { <br>
+                *(head + i) = n; <br>
+            } <br>
+            else { <br>
+                prev->next = n; <br>
+            } <br>
+            prev = n; <br>
+        } <br>
+    } <br>
+    for (int i = 0; i < size; ++i) { <br>
+        info* temp = *(head + i); <br>
+        cout << i << "-->\t"; <br>
+        while (temp != NULL) { <br>
+            cout << temp->data << " "; <br>
+            temp = temp->next; <br>
+        } <br>
+  
+        cout << '\n'; <br>
+    } <br>
+  
+    return 0; <br>
+} <br>
+	OUTPUT: <br>
+	![image](https://user-images.githubusercontent.com/97940333/157170115-027e7e34-a543-45d8-bfec-59783d307a1f.png)
+

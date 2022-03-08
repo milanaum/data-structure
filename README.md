@@ -691,7 +691,8 @@ void BST::display(node *ptr, int level) <br>
 }<br>
 
 OUTPUT: <br>
-	
+![image](https://user-images.githubusercontent.com/97940333/157176982-7a554b5c-97ea-453b-b461-8576c3d1803d.png) <br> ![image](https://user-images.githubusercontent.com/97940333/157177215-9da7d7e2-387c-4ab5-aaf3-230b37ba32a7.png)<br>![image](https://user-images.githubusercontent.com/97940333/157177348-113acabe-5e87-4d9c-9b5b-0338f4ff4a32.png)
+
 ****************************************************************************************************************************************
 8. Subset of sum problem using backtracking. <br>
 ****************************************************************************************************************************************

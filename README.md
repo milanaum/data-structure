@@ -812,4 +812,60 @@ return 0; <br>
 OUTPUT: <br>
 ![image](https://user-images.githubusercontent.com/97940333/157179715-1e94a2b8-99ff-4859-8c56-ccceab41ab4c.png)
 
+********************************************************************************************************************************************************
+10. Stack using array. <br>
+********************************************************************************************************************************************************
+#include<stdio.h> <br>
+void push(char element, char stack[], int *top, int stackSize)  <br>
+{  <br>
+ if(*top == -1)  <br>
+ {  <br>
+  stack[stackSize - 1] = element;  <br>
+  *top = stackSize - 1;  <br>
+ }  <br>
+ else if(*top == 0)  <br>
+ {  <br>
+  printf("The stack is already full. \n");  <br>
+ }  <br>
+ else  <br>
+ {  <br>
+  stack[(*top) - 1] = element;  <br>
+  (*top)--;  <br>
+ }  <br>
+}  <br>
+void pop(char stack[], int *top, int stackSize)  <br>
+{  <br>
+ if(*top == -1)  <br>
+ {  <br>
+   printf("The stack is empty. \n");  <br>
+ }  <br>
+ else{  <br>
+  printf("Element popped: %c \n", stack[(*top)]);  <br>
+  if((*top) == stackSize - 1)  <br>
+  {  <br>
+    (*top) = -1;  <br>
+  }  <br>
+  else{  <br>
+    (*top)++;  <br>
+  }  <br>
+ }  <br>
+}  <br>
+int main()   <br>
+{  <br>
+  int stackSize = 4; <br>
+  char stack[stackSize];  <br>
+  int top = -1;  <br>
+  push('a', stack, &top, stackSize);  <br>
+  printf("Element on top: %c\n", stack[top]);  <br>
+  push('b',stack, &top, stackSize);  <br>
+  printf("Element on top: %c\n", stack[top]);  <br>
+  pop(stack, &top, stackSize);  <br>
+  printf("Element on top: %c\n", stack[top]);  <br>
+  pop(stack, &top, stackSize);  <br>
+  printf("Top: %d\n", top);  <br>
+  pop(stack, &top, stackSize);  <br>
+  return 0;  <br>
+}  <br>
+OUTPUT:  <br>
+![image](https://user-images.githubusercontent.com/97940333/157183136-b9a5b6c4-494f-4a6d-b700-6a90d5e02577.png)
 

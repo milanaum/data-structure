@@ -868,4 +868,83 @@ int main()   <br>
 }  <br>
 OUTPUT:  <br>
 ![image](https://user-images.githubusercontent.com/97940333/157183136-b9a5b6c4-494f-4a6d-b700-6a90d5e02577.png)
-
+	
+****************************************************************************************************************************
+11. Sliptting position. <br>
+****************************************************************************************************************************
+#include<iostream> <br>
+#include<iostream> <br>
+using namespace std; <br>
+struct Node{ <br>
+int value; <br>
+struct Node *next;<br>
+}; <br>
+struct Node* head = NULL; <br>
+struct Node* sHead = NULL; <br>
+struct Node* temp = NULL; <br>
+void insert(int new_data){ <br>
+struct Node* new_node = new Node();  <br>
+new_node->value = new_data; <br>
+new_node->next = head; <br>
+head = new_node; <br>
+} <br>
+int n; <br>
+int ele; <br>
+int splitIndex; <br>
+int main(){ <br>
+int i; <br>
+cout<<"Enter number of elements you want in the list\t"; <br>
+cin>>n; <br>
+cout<<"Enter elements :" <<endl; <br>
+for(i=0;i<n;i++){ <br>
+cin>>ele; <br>
+insert(ele); <br>
+} <br>
+cout<<"\nList of elements : "<<endl; <br>
+Node *t; <br>
+t = head; <br>
+while(t != NULL){ <br>
+cout<<t->value<<"\t"; <br>
+t = t->next; <br>
+} <br>
+cout<<"\n\nEnter the position you want the list to split "; <br>
+cin>>splitIndex; <br>
+while(splitIndex < 0 || splitIndex > n-1){ <br>
+cout<<"Invalid position. Try again."<<endl; <br>
+cin>>splitIndex; <br>
+} <br>
+temp = head; <br>
+for(i=0;i<=splitIndex;i++){ <br>
+if(i==splitIndex-1){ <br>
+Node *tN; <br>
+tN = temp->next; <br>
+sHead = tN; <br>
+temp->next = NULL; <br>
+break; <br>
+} <br>
+temp = temp->next; <br>
+} <br>
+temp = head; <br>
+if(temp == NULL){ <br>
+cout<<"\nFirst list is empty"<<endl; <br>
+}else{ <br>
+cout<<"\n\nFirst list element "<<endl; <br>
+while(temp != NULL){ <br>
+cout<<temp->value<<"\t"; <br>
+temp = temp->next; <br>
+} <br> 
+} <br>
+temp = sHead; <br>
+if(temp == NULL){ <br>
+cout<<"\nSecond list is empty"<<endl; <br>
+}else{ <br>
+cout<<"\n\nSecond list elements "<<endl; <br>
+while(temp != NULL){ <br>
+cout<<temp->value<<"\t"; <br>
+temp = temp->next; <br>
+} <br>
+}<br>
+return 0; <br>
+} <br>
+OUTPUT: <br>
+![image](https://user-images.githubusercontent.com/97940333/157184448-07937d89-c7d6-4e07-9936-d535fadf5167.png)

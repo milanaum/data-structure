@@ -1476,38 +1476,8 @@ void single_llist::display() <br>
  } <br>
 }<br>
 	
-OUTPUT: <br>
-OUTPUT:
- 
-
-
-
-  
- 
- 
- 
- 
- 
- 
- 
-
- 
- 
- 
-
- 
- 
- 
- 
-
-
-
-
-
-
-
-
-
+OUTPUT: <br>![image](https://user-images.githubusercontent.com/97940333/162892333-0c489835-1ff9-4e3f-901b-b1dd0d12a531.png)<br>
+![image](https://user-images.githubusercontent.com/97940333/162892443-dee06073-0e67-4a72-871f-66a109213d29.png)<br>![image](https://user-images.githubusercontent.com/97940333/162892522-c830f2e3-37e5-4ad3-a69d-4ccf61c8fd17.png)<br>![image](https://user-images.githubusercontent.com/97940333/162892630-d90f31a6-2c6e-42ad-b352-60787c48e7b5.png)<br>![image](https://user-images.githubusercontent.com/97940333/162892683-00b81e15-3c2e-4671-8b03-71023d29bc40.png)<br>![image](https://user-images.githubusercontent.com/97940333/162892824-6a4e248f-e7b4-49f1-bb6d-331465e7afb8.png)<br>![image](https://user-images.githubusercontent.com/97940333/162892904-82166b91-926e-4f04-a86c-2d87bfaabdbf.png)
 
 ************************************************************************************************************************************
 13.Write C++ program to implement merge sort technique using divide and conquer method <br>

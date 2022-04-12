@@ -120,20 +120,20 @@ cout<<"\n"; <br>
 } <br>
 int main()  <br>
 { <br>
-    struct Node *head=NULL; <br>
-    Insert(&head,1,5); <br>
-    Insert(&head,1,4); <br>
-    Insert(&head,3,3); <br>
-    Insert(&head,2,2); <br>
-    Insert(&head,2,1); <br>
-    Print(&head); <br>
+struct Node *head=NULL; <br>
+Insert(&head,1,5); <br>
+Insert(&head,1,4); <br>
+Insert(&head,3,3); <br>
+Insert(&head,2,2); <br>
+Insert(&head,2,1); <br>
+Print(&head); <br>
 
-    Delete(&head,1); <br>
-    Print(&head); <br>
-    Delete(&head,4); <br>
-    Print(&head); <br>
-    Delete(&head,4); <br>
-    Print(&head); <br>
+Delete(&head,1); <br>
+Print(&head); <br>
+Delete(&head,4); <br>
+Print(&head); <br>
+Delete(&head,4); <br>
+Print(&head); <br>
 } <br>
   OUTPUT: <br>
   ![image](https://user-images.githubusercontent.com/97940333/155066987-2c873ab1-1274-486b-8b2b-2e3bfa58dea3.png)
@@ -322,31 +322,31 @@ int main() <br>
         info* prev = NULL; <br>
         int s = 4; <br>
   
-        while (s--) { <br>
-            info* n = new info; <br>
-            n->data = i * s; <br>
-            n->next = NULL; <br>
-            if (*(head + i) == NULL) { <br>
-                *(head + i) = n; <br>
-            } <br>
-            else { <br>
-                prev->next = n; <br>
-            } <br>
-            prev = n; <br>
-        } <br>
-    } <br>
-    for (int i = 0; i < size; ++i) { <br>
-        info* temp = *(head + i); <br>
-        cout << i << "-->\t"; <br>
-        while (temp != NULL) { <br>
-            cout << temp->data << " "; <br>
-            temp = temp->next; <br>
-        } <br>
+    while (s--) { <br>
+   info* n = new info; <br>
+   n->data = i * s; <br>
+   n->next = NULL; <br>
+   if (*(head + i) == NULL) { <br>
+   *(head + i) = n; <br>
+   } <br>
+   else { <br>
+   prev->next = n; <br>
+   } <br>
+  prev = n; <br>
+  } <br>
+  } <br>
+   for (int i = 0; i < size; ++i) { <br>
+   info* temp = *(head + i); <br>
+  cout << i << "-->\t"; <br>
+  while (temp != NULL) { <br>
+  cout << temp->data << " "; <br>
+  temp = temp->next; <br>
+  } <br>
   
-        cout << '\n'; <br>
-    } <br>
+cout << '\n'; <br>
+} <br>
   
-    return 0; <br>
+return 0; <br>
 } <br>
 	OUTPUT: <br>
 	![image](https://user-images.githubusercontent.com/97940333/157170115-027e7e34-a543-45d8-bfec-59783d307a1f.png)
@@ -722,32 +722,31 @@ public: <br>
     } <br>
   } <br>
   void displaySolutionSet(){ <br>
-        stack<int> temp; <br>
+  stack<int> temp; <br>
       
-        while (!solutionSet.empty())  <br>
-        {  <br>
-            cout <<  solutionSet.top() << " ";  <br>
-            temp.push(solutionSet.top());  <br>
-            solutionSet.pop(); <br>
-        }  <br>
-        cout << '\n'; <br>
-        while (!temp.empty())  <br>
-        {  <br>
-            solutionSet.push(temp.top());  <br>
-            temp.pop(); <br>
-        } <br>
-    } <br>
+  while (!solutionSet.empty())  <br>
+ {  <br>
+cout <<  solutionSet.top() << " ";  <br>
+ temp.push(solutionSet.top());  <br>
+solutionSet.pop(); <br>
+}  <br>
+cout << '\n'; <br>
+while (!temp.empty())  <br>
+{  <br>
+ solutionSet.push(temp.top());  <br>
+ temp.pop(); <br>
+ } <br>
+} <br>
 }; <br>
  
 int main() <br>
 { <br>
-    SubSet ss; <br>
-    ss.solve(0,0); <br>
-	    
-	if(ss.hasSolution == false) <br>
-	    cout << "No Solution"; <br>
+SubSet ss; <br>
+ss.solve(0,0); <br>
+if(ss.hasSolution == false) <br>
+cout << "No Solution"; <br>
  
-    return 0; <br>
+return 0; <br>
 } <br>
 	OUTPUT: <br>
 	![image](https://user-images.githubusercontent.com/97940333/157178017-577822aa-a997-486b-ae5a-f6a9bda9391d.png)

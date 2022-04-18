@@ -1885,3 +1885,7 @@ while(choice);
 return 0;
 }
 
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/97940333/163760722-623c2b65-9e5c-4b35-8d37-7abebd6115d8.png)<br>![image](https://user-images.githubusercontent.com/97940333/163760887-0836ede3-ca63-4cc4-b1cb-10d39bee0ce8.png)
+
+

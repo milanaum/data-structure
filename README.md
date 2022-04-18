@@ -1560,50 +1560,51 @@ OUTPUT: <br>![image](https://user-images.githubusercontent.com/97940333/16288922
 ***************************************************************************************************************************************
 14. Implement program to doubly linked listed <br>
 ****************************************************************************************************************************************
-#include<iostream>
-#include<cstdio>
-#include<cstdlib>
-using namespace std;
-struct node
-{
- int info;
-struct node *next;
-struct node *prev;
-}*start;
-class double_llist
-{
-public:
-void create_list(int value);
-void add_begin(int value);
-void add_after(int value, int position);
-void delete_element(int value);
-void search_element(int value);
-void display_dlist();
-void count();
-void reverse();
-double_llist()
-{
-start = NULL;  
- }
-};
- int main()
-{
-int choice, element, position;
-double_llist dl;
-while (1)
-{
- cout<<endl<<"----------------------------"<<endl;
- cout<<endl<<"Operations on Doubly linked list"<<endl;
- cout<<endl<<"----------------------------"<<endl;        
- cout<<"1.Create Node"<<endl;
- cout<<"2.Add at begining"<<endl;
- cout<<"3.Add after position"<<endl;
- cout<<"4.Delete"<<endl;
- cout<<"5.Display"<<endl;
- cout<<"6.Count"<<endl;
- cout<<"7.Reverse"<<endl;
+#include<iostream><br>
+#include<cstdio><br>
+#include<cstdlib><br>
+using namespace std;<br>
+struct node<br>
+{<br>
+ int info;<br>
+struct node *next;<br>
+struct node *prev;<br>
+}*start;<br>
+class double_llist<br>
+{<br>
+public:<br>
+void create_list(int value);<br>
+void add_begin(int value);<br>
+void add_after(int value, int position);<br>
+void delete_element(int value);<br>
+void search_element(int value);<br>
+void display_dlist();<br>
+void count();<br>
+void reverse();<br>
+double_llist()<br>
+{<br>
+start = NULL; <br> <br>
+ }<br>
+};<br>
+ int main()<br>
+{<br>
+int choice, element, position;<br>
+double_llist dl;<br>
+while (1)<br>
+{<br>
+ cout<<endl<<"----------------------------"<<endl;<br>
+ cout<<endl<<"Operations on Doubly linked list"<<endl;<br>
+ cout<<endl<<"----------------------------"<<endl; <br>       
+ cout<<"1.Create Node"<<endl;<br>
+ cout<<"2.Add at begining"<<endl;<br>
+ cout<<"3.Add after position"<<endl;<br>
+ cout<<"4.Delete"<<endl;<br>
+ cout<<"5.Display"<<endl;<br>
+ cout<<"6.Count"<<endl;<br>
+ cout<<"7.Reverse"<<endl;<br>
  cout<<"8.Quit"<<endl;
  cout<<"Enter your choice 
+	
  cin>>choice;
  switch ( choice )
  {

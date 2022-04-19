@@ -194,58 +194,7 @@ int main() <br>
   OUTPUT:  <br>
   ![image](https://user-images.githubusercontent.com/97940333/156971371-19daacaf-b12c-4433-bcef-495e4b3f3560.png)
 	
-****************************************************************************************************************************************************
-4. TO implement maximum heap. <br>
-****************************************************************************************************************************************************
-#include <iostream> <br>
-using namespace std; <br>
-void max_heap(int *a, int m, int n) <br>
-	{ <br>
-   int j, t; <br>
-   t = a[m]; <br>
-   j = 2 * m; <br>
-   while (j <= n) <br> 
-{ <br>
-      if (j < n && a[j+1] > a[j]) <br>
-         j = j + 1; <br>
-      if (t > a[j]) <br>
-         break; <br>
-      else if (t <= a[j]) <br>
-	{ <br>
-         a[j / 2] = a[j]; <br>
-         j = 2 * j; <br> 
-      } <br>
-   } <br>
-   a[j/2] = t; <br>
-   return; <br>
-} <br>
-void build_maxheap(int *a,int n)  <br>
-{ <br>
-   int k; <br>
-   for(k = n/2; k >= 1; k--) <br>
-	{ <br>
-      max_heap(a,k,n); <br>
-   } <br>
-} <br>
-int main() { <br>
-   int n, i; <br>
-   cout<<"enter no of elements of array\n"; <br>
-   cin>>n; <br>
-   int a[30]; <br>
-   for (i = 1; i <= n; i++)  <br>
-{ <br>
-      cout<<"enter elements"<<" "<<(i)<<endl; <br>
-      cin>>a[i]; <br>
-   } <br>
-   build_maxheap(a,n); <br>
-   cout<<"Max Heap\n"; <br>
-   for (i = 1; i <= n; i++) <br>
-{ <br>
-  cout<<a[i]<<endl; <br>
-   } <br>
-} <br>
-OUTPUT: <br>
-	![image](https://user-images.githubusercontent.com/97940333/156972942-873f94c7-2de2-494a-9031-b5b2330bb416.png)
+
 	
 ************************************************************************************************************************************************************
 5. To implemnet heap sort. <br>
@@ -1955,4 +1904,63 @@ return 0;<br>
 OUTPUT: <br>
 ![image](https://user-images.githubusercontent.com/97940333/163764279-a6b0756a-a7fb-42ef-91f6-7f19becb7bef.png)
 
+********************************************************************************************************************************************
+17.Backtracking
+********************************************************************************************************************************************
+#include <iostream>
+#include <stack>
+ 
+using namespace std;
+ 
+int set[] = {12,8,4,15,5,9,20,3};
+int numberOfElements = 8, sum = 20;
+ 
+class SubSet{
+public:
+  stack<int> solutionSet;
+  bool hasSolution;
+  
+  void solve(int s, int idx){
+    if(s>sum)
+        return;
+    if(s==sum){
+        hasSolution = true;
+        displaySolutionSet();
+        return;
+    }
+          for(int i=idx; i<numberOfElements; i++){
+        solutionSet.push(set[i]);
+        solve(s+set[i],i+1);
+        solutionSet.pop();
+    }
+  }
+  void displaySolutionSet(){
+        stack<int> temp;
+      
+        while (!solutionSet.empty()) 
+        { 
+            cout <<  solutionSet.top() << " "; 
+            temp.push(solutionSet.top()); 
+            solutionSet.pop();
+        } 
+        cout << '\n';
+        while (!temp.empty()) 
+        { 
+            solutionSet.push(temp.top()); 
+            temp.pop();
+        } 
+    }
+};
+ 
+int main()
+{
+    SubSet ss;
+    ss.solve(0,0);
+	    
+	if(ss.hasSolution == false)
+	    cout << "No Solution";
+ 
+    return 0;
+}
 
+OUTPUT: <br>![image](https://user-images.githubusercontent.com/97940333/163938668-fbf732c8-a87f-4f66-983c-ab2d10962277.png)

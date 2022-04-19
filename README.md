@@ -1686,136 +1686,136 @@ temp->prev = s;<br>
 void double_llist::add_begin(int value)<br>
 {<br>
 if (start == NULL)<br>
-    {<br>
-        cout<<"First Create the list."<<endl;<br>
-        return;<br>
-    }<br>
-    struct node *temp;<br>
-    temp = new(struct node);<br>
-    temp->prev = NULL;<br>
-    temp->info = value;<br>
-    temp->next = start;<br>
-    start->prev = temp;<br>
-    start = temp;<br>
-    cout<<"Element Inserted"<<endl;<br>
+{<br>
+cout<<"First Create the list."<<endl;<br>
+return;<br>
+}<br>
+struct node *temp;<br>
+temp = new(struct node);<br>
+temp->prev = NULL;<br>
+temp->info = value;<br>
+temp->next = start;<br>
+start->prev = temp;<br>
+start = temp;<br>
+cout<<"Element Inserted"<<endl;<br>
 }<br>
 void double_llist::add_after(int value, int pos)<br>
 {<br>
-    if (start == NULL)<br>
-    {<br>
-        cout<<"First Create the list."<<endl;<br>
-        return;<br>
-    }<br>
-    struct node *tmp, *q;<br>
-    int i;<br>
-    q = start;<br>
-    for (i = 0;i < pos - 1;i++)<br>
-    {<br>
-        q = q->next;<br>
-        if (q == NULL)<br>
-        {<br>
-            cout<<"There are less than ";<br>
-            cout<<pos<<" elements."<<endl;<br>
-            return;<br>
-        }<br>
-    }<br>
-    tmp = new(struct node);<br>
-    tmp->info = value;<br>
-    if (q->next == NULL)<br>
-    {<br>
-        q->next = tmp;<br>
-        tmp->next = NULL;<br>
-        tmp->prev = q;<br>      
-    }<br>
-    else<br>
-    {<br>
-        tmp->next = q->next;<br>
-        tmp->next->prev = tmp;<br>
-        q->next = tmp;<br>
-        tmp->prev = q;<br>
-    }<br>
-    cout<<"Element Inserted"<<endl;<br>
+if (start == NULL)<br>
+{<br>
+cout<<"First Create the list."<<endl;<br>
+return;<br>
+}<br>
+struct node *tmp, *q;<br>
+int i;<br>
+q = start;<br>
+for (i = 0;i < pos - 1;i++)<br>
+{<br>
+q = q->next;<br>
+if (q == NULL)<br>
+{<br>
+cout<<"There are less than ";<br>
+cout<<pos<<" elements."<<endl;<br>
+return;<br>
+}<br>
+}<br>
+tmp = new(struct node);<br>
+tmp->info = value;<br>
+if (q->next == NULL)<br>
+{<br>
+q->next = tmp;<br>
+tmp->next = NULL;<br>
+tmp->prev = q;<br>      
+}<br>
+else
+{<br>
+tmp->next = q->next;<br>
+tmp->next->prev = tmp;<br>
+q->next = tmp;<br>
+tmp->prev = q;<br>
+}<br>
+cout<<"Element Inserted"<<endl;<br>
 }<br>
  void double_llist::delete_element(int value)<br>
 {<br>
-    struct node *tmp, *q;<br>
-        if (start->info == value)<br>
-    {<br>
-        tmp = start;<br>
-        start = start->next; <br> 
-        start->prev = NULL;<br>
-        cout<<"Element Deleted"<<endl;<br>
-        free(tmp);<br>
-        return;<br>
-    }<br>
-    q = start;<br>
-    while (q->next->next != NULL)<br>
-    {  <br>
-               if (q->next->info == value) <br> 
-        {<br>
-            tmp = q->next;<br>
-            q->next = tmp->next;<br>
-            tmp->next->prev = q;<br>
-            cout<<"Element Deleted"<<endl;<br>
-            free(tmp);<br>
-            return;<br>
-        }<br>
-        q = q->next;<br>
-    }<br>
-        if (q->next->info == value)<br>    
-    {<br>
-        tmp = q->next;<br>
-        free(tmp);<br>
-        q->next = NULL;<br>
-        cout<<"Element Deleted"<<endl;<br>
-        return;<br>
-    }<br>
-    cout<<"Element "<<value<<" not found"<<endl;<br>
-}<br>
- void double_llist::display_dlist()<br>
+struct node *tmp, *q;<br>
+if (start->info == value)<br>
 {<br>
-    struct node *q;<br>
-    if (start == NULL)<br>
-    {<br>
-        cout<<"List empty,nothing to display"<<endl;<br>
-        return;<br>
-    }<br>
-    q = start;<br>
-    cout<<"The Doubly Link List is :"<<endl;<br>
-    while (q != NULL)<br>
-    {<br>
-        cout<<q->info<<" <-> ";<br>
-        q = q->next;<br>
-    }<br>
-    cout<<"NULL"<<endl;<br>
+tmp = start;<br>
+start = start->next; <br> 
+start->prev = NULL;<br>
+cout<<"Element Deleted"<<endl;<br>
+free(tmp);<br>
+return;<br>
+}<br>
+q = start;<br>
+while (q->next->next != NULL)<br>
+{  <br>
+if (q->next->info == value) <br> 
+{<br>
+tmp = q->next;<br>
+q->next = tmp->n
+tmp->next->prev = q;<br>
+cout<<"Element Deleted"<<endl;<br>
+free(tmp);<br>
+return;<br>
+}<br>
+q = q->next;<br>
+}<br>
+if (q->next->info == value)<br>    
+{<br>
+tmp = q->next;<br>
+free(tmp);<br>
+q->next = NULL;<br>
+cout<<"Element Deleted"<<endl;<br>
+return;<br>
+}<br>
+cout<<"Element "<<value<<" not found"<<endl;<br>
+}<br>
+void double_llist::display_dlist()<br>
+{<br>
+struct node *q;<br>
+if (start == NULL)<br>
+{<br>
+cout<<"List empty,nothing to display"<<endl;<br>
+return;<br>
+}<br>
+q = start;<br>
+cout<<"The Doubly Link List is :"<<endl;<br>
+while (q != NULL)<br>
+{<br>
+cout<<q->info<<" <-> ";<br>
+q = q->next;<br>
+}<br>
+cout<<"NULL"<<endl;<br>
 }<br>
  void double_llist::count()<br>
 {<br>
-    struct node *q = start;<br>
-    int cnt = 0;<br>
-    while (q != NULL)<br>
-    {<br>
-        q = q->next;<br>
-        cnt++;<br>
-    }<br>
-    cout<<"Number of elements are: "<<cnt<<endl;<br>
+struct node *q = start;<br>
+int cnt = 0;<br>
+while (q != NULL)<br>
+{<br>
+q = q->next;<br>
+cnt++;<br>
+}<br>
+cout<<"Number of elements are: "<<cnt<<endl;<br>
 }<br>
  void double_llist::reverse()<br>
 {<br>
-    struct node *p1, *p2;<br>
-    p1 = start;<br>
-    p2 = p1->next;<br>
-    p1->next = NULL;<br>
-    p1->prev = p2;<br>
-    while (p2 != NULL)<br>
-    {<br>
-        p2->prev = p2->next;<br>
-        p2->next = p1;<br>
-        p1 = p2;<br>
-        p2 = p2->prev;<br>
-    }<br>
-    start = p1;<br><br>
-    cout<<"List Reversed"<<endl;<br>
+struct node *p1, *p2;<br>
+p1 = start;<br>
+p2 = p1->next;<br>
+p1->next = NULL;<br>
+p1->prev = p2;<br>
+while (p2 != NULL)<br>
+{<br>
+p2->prev = p2->next;<br>
+p2->next = p1;<br>
+p1 = p2;<br>
+p2 = p2->prev;<br>
+}<br>
+start = p1;<br><br>
+cout<<"List Reversed"<<endl;<br>
 }<br>
 	
 OUTPUT:<br>
@@ -1829,58 +1829,58 @@ OUTPUT:<br>
 using namespace std;<br>
 void Insert(int ary[],int hFn, int Size)<br>
 {<br>
-    int element,pos,n=0;<br>
-    cout<<"Enter key element to insert\n";<br>
-    cin>>element;<br>
-    pos = element%hFn;<br> 
-    while(ary[pos]!= INT_MIN) <br>
-      { <br> 
-        if(ary[pos]== INT_MAX)<br>
-        break;<br>
-        pos = (pos+1)%hFn;<br>
-        n++;<br>
-        if(n==Size)<br>
-        break;  <br>   
-       }<br>
-       if(n==Size)<br>
-       cout<<"Hash table was full of elements\nNo Place to insert this element\n\n";<br>
-       else<br>
-        ary[pos] = element;  <br>  
+int element,pos,n=0;<br>
+cout<<"Enter key element to insert\n";<br>
+cin>>element;<br>
+pos = element%hFn;<br> 
+while(ary[pos]!= INT_MIN) <br>
+{ <br> 
+if(ary[pos]== INT_MAX)<br>
+break;<br>
+pos = (pos+1)%hFn;<br>
+n++;<br>
+if(n==Size)<br>
+break;  <br>   
 }<br>
-        void display(int ary[],int Size)<br>
-		{<br>
-        int i;<br>
+if(n==Size)<br>
+cout<<"Hash table was full of elements\nNo Place to insert this element\n\n";<br>
+else<br>
+ary[pos] = element;  <br>  
+}<br>
+void display(int ary[],int Size)<br>
+{<br>
+int i;<br>
  
-       cout<<"Index\tValue\n";<br>
-       for(i=0;i<Size;i++)<br>
-       cout<<i<<"\t"<<ary[i]<<"\n";<br>
-       }<br>   
-       int main()<br>
-	   {<br>
-        int Size,hFn,i,choice;<br>
-        cout<<"Enter size of hash table\n";<br>
-        cin>>Size;<br>
-        hFn=Size;<br>
-        int ary[Size];<br>
-        for(i=0;i<Size;i++)<br>
-        ary[i]=INT_MIN; <br>
-      do<br>
-	  {<br>
-      	cout<<"Enter your choice\n";<br>
-        cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n";<br>
-        cin>>choice;<br>
-        switch(choice)<br>
-		{<br>
-        case 1:<br>
-        Insert(ary,hFn,Size);<br>
-        break;<br>
-        case 2:<br>
-        display(ary,Size);<br>
-        break;<br>
-        default:<br>
-        cout<<"Enter correct choice\n";<br>
-        break;<br>
-      }<br>
+cout<<"Index\tValue\n";<br>
+for(i=0;i<Size;i++)<br>
+cout<<i<<"\t"<<ary[i]<<"\n";<br>
+}<br>   
+int main()<br>
+{<br>
+ int Size,hFn,i,choice;<br>
+ cout<<"Enter size of hash table\n";<br>
+ cin>>Size;<br>
+ hFn=Size;<br>
+ int ary[Size];<br>
+ for(i=0;i<Size;i++)<br>
+ ary[i]=INT_MIN; <br>
+ do<br>
+{<br>
+cout<<"Enter your choice\n";<br>
+ cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n";<br>
+ cin>>choice;<br>
+ switch(choice)<br>
+{<br>
+ case 1:<br>
+ Insert(ary,hFn,Size);<br>
+ break;<br>
+ case 2:<br>
+ display(ary,Size);<br>
+ break;<br>
+ default:<br>
+ cout<<"Enter correct choice\n";<br>
+ break;<br>
+}<br>
 }<br>
 while(choice);<br>
 return 0;<br>

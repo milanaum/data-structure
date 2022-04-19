@@ -34,11 +34,11 @@ int main() <br>
 } <br>
 OUTPUT: <br>
 ![image](https://user-images.githubusercontent.com/97940333/154896970-ac2b1d40-dd79-443c-a62e-58e2fa0a6530.png)
-*****************************************
 
 
+****************************************************************************************************************************************
 2.Write a c++ program to implement insertion and deletion node in a rear position of linked list. <br>
-**********************************************
+******************************************************************************************************************************************
 #include<bits/stdc++.h> <br>
 using namespace std; <br>
 struct Node <br>
@@ -1767,8 +1767,8 @@ start = p1;<br><br>
 cout<<"List Reversed"<<endl;<br>
 }<br>
 	
-OUTPUT:<br>
-
+OUTPUT:<br>![image](https://user-images.githubusercontent.com/97940333/163939873-96b4219c-3c03-462e-8e49-c708f599ed4d.png)<br>
+![image](https://user-images.githubusercontent.com/97940333/163939962-92989485-7588-43e3-aeb2-42de30156d06.png)<br>![image](https://user-images.githubusercontent.com/97940333/163940118-632e04ea-2c7a-47a6-bd57-30aff4d79d85.png)<br>![image](https://user-images.githubusercontent.com/97940333/163940315-f90e43ac-e5be-4787-98ca-2f80953955e9.png)<br>![image](https://user-images.githubusercontent.com/97940333/163940463-909912f0-2ad5-4107-841e-69eb38148fc5.png)
 	
 ************************************************************************************************************************
 15. Hashing<br>
@@ -1904,63 +1904,46 @@ return 0;<br>
 OUTPUT: <br>
 ![image](https://user-images.githubusercontent.com/97940333/163764279-a6b0756a-a7fb-42ef-91f6-7f19becb7bef.png)
 
-********************************************************************************************************************************************
-17.Backtracking
-********************************************************************************************************************************************
-#include <iostream>
-#include <stack>
- 
-using namespace std;
- 
-int set[] = {12,8,4,15,5,9,20,3};
-int numberOfElements = 8, sum = 20;
- 
-class SubSet{
-public:
-  stack<int> solutionSet;
-  bool hasSolution;
-  
-  void solve(int s, int idx){
-    if(s>sum)
-        return;
-    if(s==sum){
-        hasSolution = true;
-        displaySolutionSet();
-        return;
-    }
-          for(int i=idx; i<numberOfElements; i++){
-        solutionSet.push(set[i]);
-        solve(s+set[i],i+1);
-        solutionSet.pop();
-    }
-  }
-  void displaySolutionSet(){
-        stack<int> temp;
-      
-        while (!solutionSet.empty()) 
-        { 
-            cout <<  solutionSet.top() << " "; 
-            temp.push(solutionSet.top()); 
-            solutionSet.pop();
-        } 
-        cout << '\n';
-        while (!temp.empty()) 
-        { 
-            solutionSet.push(temp.top()); 
-            temp.pop();
-        } 
-    }
-};
- 
+****************************************************************************************************************************************************
+17. Binary search 
+*****************************************************************************************************************************************************
+#include <stdio.h>
 int main()
 {
-    SubSet ss;
-    ss.solve(0,0);
-	    
-	if(ss.hasSolution == false)
-	    cout << "No Solution";
- 
-    return 0;
+  int c, first, last, middle, n, search, array[100];
+
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
+
+  printf("Enter %d integers\n", n);
+
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+
+  printf("Enter value to find\n");
+  scanf("%d", &search);
+
+  first = 0;
+  last = n - 1;
+  middle = (first+last)/2;
+
+  while (first <= last) {
+    if (array[middle] < search)
+      first = middle + 1;
+    else if (array[middle] == search) {
+      printf("%d found at location %d.\n", search, middle+1);
+      break;
+    }
+    else
+      last = middle - 1;
+
+    middle = (first + last)/2;
+  }
+  if (first > last)
+    printf("Not found! %d isn't present in the list.\n", search);
+
+  return 0;
 }
 
-OUTPUT: <br>![image](https://user-images.githubusercontent.com/97940333/163938668-fbf732c8-a87f-4f66-983c-ab2d10962277.png)
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/97940333/163939406-cf2e753f-85e1-41f7-b604-683eaac70cf6.png)

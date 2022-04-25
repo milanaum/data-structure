@@ -1907,43 +1907,147 @@ OUTPUT: <br>
 ****************************************************************************************************************************************************
 17. Binary search 
 *****************************************************************************************************************************************************
-#include <stdio.h>
-int main()
-{
-  int c, first, last, middle, n, search, array[100];
+#include <stdio.h><br>
+int main()<br>
+{<br>
+  int c, first, last, middle, n, search, array[100];<br>
 
-  printf("Enter number of elements\n");
-  scanf("%d", &n);
+  printf("Enter number of elements\n");<br>
+  scanf("%d", &n);<br>
 
-  printf("Enter %d integers\n", n);
+  printf("Enter %d integers\n", n);<br>
 
-  for (c = 0; c < n; c++)
-    scanf("%d", &array[c]);
+  for (c = 0; c < n; c++)<br>
+    scanf("%d", &array[c]);<br>
 
-  printf("Enter value to find\n");
-  scanf("%d", &search);
+  printf("Enter value to find\n");<br>
+  scanf("%d", &search);<br>
 
-  first = 0;
-  last = n - 1;
-  middle = (first+last)/2;
+  first = 0;<br>
+  last = n - 1;<br>
+  middle = (first+last)/2;<br>
 
-  while (first <= last) {
-    if (array[middle] < search)
-      first = middle + 1;
-    else if (array[middle] == search) {
-      printf("%d found at location %d.\n", search, middle+1);
-      break;
-    }
-    else
-      last = middle - 1;
+  while (first <= last) {<br>
+    if (array[middle] < search)<br>
+      first = middle + 1;<br>
+    else if (array[middle] == search) {<br>
+      printf("%d found at location %d.\n", search, middle+1);<br>
+      break;<br><br>
+    }<br>
+    else<br>
+      last = middle - 1;<br>
 
-    middle = (first + last)/2;
-  }
-  if (first > last)
-    printf("Not found! %d isn't present in the list.\n", search);
+    middle = (first + last)/2;<br>
+  }<br>
+  if (first > last)<br>
+    printf("Not found! %d isn't present in the list.\n", search);<br>
 
-  return 0;
-}
+  return 0;<br>
+}<br>
 
 OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/97940333/163939406-cf2e753f-85e1-41f7-b604-683eaac70cf6.png)
+	
+********************************************************************************************************************************************
+18.Write a C++ program to find  MST Using  Kruskal’s algorithm.<br>
+********************************************************************************************************************************************
+
+#include<bits/stdc++.h><br>
+using namespace std;<br>
+typedef pair<int, int> iPair;<br>
+struct Graph<br>
+{<br>
+int V, E;<br>
+vector< pair<int, iPair> > edges;<br>
+Graph(int V, int E)<br>
+{<br>
+this->V = V;<br>
+this->E = E;<br>
+}<br>
+void addEdge(int u, int v, int w)<br>
+{<br>
+edges.push_back({w, {u, v}});<br>
+}<br>
+int kruskalMST();<br>
+};<br>
+
+struct DisjointSets<br>
+{<br>
+int *parent, *rnk;<br><br>
+int n;<br>
+DisjointSets(int n)<br>
+{<br>
+this->n = n;<br>
+parent = new int[n+1];<br>
+rnk = new int[n+1];<br>
+for (int i = 0; i <= n; i++)<br>
+{<br>
+rnk[i] = 0;<br>
+parent[i] = i;<br>
+}<br>
+}<br>
+int find(int u)<br>
+{<br>
+if (u != parent[u])<br>
+parent[u] = find(parent[u]);<br>
+return parent[u];<br>
+}<br>
+void merge(int x, int y)<br>
+{<br>
+x = find(x), y = find(y);<br>
+if (rnk[x] > rnk[y])<br>
+parent[y] = x;<br>
+else // If rnk[x] <= rnk[y]<br>
+parent[x] = y;<br>
+if (rnk[x] == rnk[y])<br>
+rnk[y]++;<br>
+}<br>
+};<br>
+int Graph::kruskalMST()<br>
+{<br>
+int mst_wt = 0; <br>
+sort(edges.begin(), edges.end());<br>
+DisjointSets ds(V);<br>
+vector< pair<int, iPair> >::iterator it;<br>
+for (it=edges.begin(); it!=edges.end(); it++)<br>
+{<br>
+int u = it->second.first;<br>
+int v = it->second.second;<br>
+int set_u = ds.find(u);<br>
+int set_v = ds.find(v);<br>
+if (set_u != set_v)<br>
+{<br>
+cout << u << " - " << v << endl;<br>
+mst_wt += it->first;<br>
+ds.merge(set_u, set_v);<br>
+}<br>
+}<br>
+return mst_wt;<br>
+}<br>
+int main()<br>
+{<br>
+int V = 9, E = 14;<br>
+Graph g(V, E);<br>
+g.addEdge(0, 1, 4);<br>
+g.addEdge(0, 7, 8);<br>
+g.addEdge(1, 2, 8);<br>
+g.addEdge(1, 7, 11);<br>
+g.addEdge(2, 3, 7);<br>
+g.addEdge(2, 8, 2);<br>
+g.addEdge(2, 5, 4);<br>
+g.addEdge(3, 4, 9);<br><br>
+g.addEdge(3, 5, 14);<br>
+g.addEdge(4, 5, 10);<br>
+g.addEdge(5, 6, 2);<br>
+g.addEdge(6, 7, 1);<br>
+g.addEdge(6, 8, 6);<br>
+g.addEdge(7, 8, 7);<br>
+cout << "Edges of MST are \n";<br>
+int mst_wt = g.kruskalMST();<br>
+cout << "\nWeight of MST is " << mst_wt;<br>
+return 0;<br>
+}<br>
+
+OUTPUT:<br>
+![image](https://user-images.githubusercontent.com/97940333/165032052-37116e8e-2756-4e6f-b266-f7f72ac7b4a1.png)
+

@@ -2151,7 +2151,6 @@ if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)
 }
 	
 OUTPUT:<br>
-![image](https://user-images.githubusercontent.com/97940333/165226141-3df66d2f-ad8d-4be4-9d7b-8ccef74779f5.png)
 
 ********************************************************************************************************************
 21.implement BFS.<br>
@@ -2164,41 +2163,40 @@ using namespace std;
 int main()
 {
 
-   int m,n,j,i,v,k;
-    cout <<"Enter no of vertices:";
-    cin >> n;
-    cout <<"Enter no of edges:";
-    cin >> m;
-    cout <<"\nEDGES \n";
-    for(k=1; k<=m; k++)
-    {
-        cin >>i>>j;
-        cost[i][j]=1;
-    }
-    cout <<"Enter initial vertex to traverse from:";
-    cin >>v;
-    cout <<"Visitied vertices:";
-    cout <<v<<" ";
-    visited[v]=1;
-    k=1;
-    while(k<n)
-    {
-        for(j=1; j<=n; j++)
-            if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)
-            {
-                visit[j]=1;
-                qu[rare++]=j;
-            }
-        v=qu[front++];
-        cout<<v <<" ";
-        k++;
-        visit[v]=0;
-        visited[v]=1;
-    }
-    return 0;
+int m,n,j,i,v,k;
+cout <<"Enter no of vertices:";
+cin >> n;
+cout <<"Enter no of edges:";
+cin >> m;
+cout <<"\nEDGES \n";
+for(k=1; k<=m; k++)
+{
+cin >>i>>j;
+cost[i][j]=1;
+}
+cout <<"Enter initial vertex to traverse from:";
+cin >>v;
+cout <<"Visitied vertices:";
+cout <<v<<" ";
+visited[v]=1;
+k=1;
+while(k<n)
+{
+for(j=1; j<=n; j++)
+if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)
+{
+visit[j]=1;
+qu[rare++]=j;
+}
+v=qu[front++];
+cout<<v <<" ";
+k++;
+visit[v]=0;
+visited[v]=1;
+ }
+ return 0;
 }
 	
 OUTPUT:<br>
-![image](https://user-images.githubusercontent.com/97940333/165226850-e34cd3a0-2b9f-4793-98ca-15634ff31b2f.png)
-
+![image](https://user-images.githubusercontent.com/97940333/165231476-20405287-a3fb-4922-8901-f7254ef4e703.png)
 

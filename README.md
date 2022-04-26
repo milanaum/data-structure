@@ -2151,7 +2151,7 @@ if(cost[v][j]!=0 && visited[j]!=1 && visit[j]!=1)
 }
 	
 OUTPUT:<br>
-
+![image](https://user-images.githubusercontent.com/97940333/165231476-20405287-a3fb-4922-8901-f7254ef4e703.png)
 ********************************************************************************************************************
 21.implement BFS.<br>
 ************************************************************************************************************************
@@ -2198,5 +2198,5 @@ visited[v]=1;
 }
 	
 OUTPUT:<br>
-![image](https://user-images.githubusercontent.com/97940333/165231476-20405287-a3fb-4922-8901-f7254ef4e703.png)
+![image](https://user-images.githubusercontent.com/97940333/165232018-fd8d2a10-dc5b-4c9c-be99-cd20633c03da.png)
 

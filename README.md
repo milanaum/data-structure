@@ -2201,3 +2201,93 @@ visited[v]=1;
 OUTPUT:<br>
 ![image](https://user-images.githubusercontent.com/97940333/165232018-fd8d2a10-dc5b-4c9c-be99-cd20633c03da.png)
 
+**********************************************b
+Tower of hanoi
+
+  #include <iostream>
+   using namespace std;
+    void towers(int, char, char, char);
+       int main()
+  {
+     int num;
+     cout<<"Enter the number of disks : ";
+     cin>>num;
+       cout<<"The sequence of moves involved in the Tower of Hanoi are :\n";
+       towers(num, 'A', 'C', 'B');
+        return 0;
+      }
+     void towers(int num, char frompeg, char topeg, char auxpeg)
+        {
+     if (num == 1)
+        {
+    cout<<"Move disk 1 from peg "<<frompeg<<" to peg "<<topeg<<"\n";
+    return;
+         }
+       towers(num - 1, frompeg, auxpeg, topeg);
+         cout<<"Move disk "<<num<<" from peg "<<frompeg<<" to peg "<<topeg<<"\n";
+          towers(num - 1, auxpeg, topeg, frompeg);
+       }
+
+
+out put 
+image
+
+             Write a C++ program to count the number of connected components in an undirected graph
+		#include <iostream>
+		#include <list>
+		using namespace std;
+		class Graph {
+		int V; 
+		list<int>* adj;
+		void DFSUtil(int v, bool visited[]);
+		public:
+		Graph(int V); 
+		~Graph();
+		void addEdge(int v, int w);
+		void connectedComponents();
+		};
+		void Graph::connectedComponents()
+		{
+		bool* visited = new bool[V];
+		for (int v = 0; v < V; v++)
+		visited[v] = false;
+		for (int v = 0; v < V; v++) {
+		if (visited[v] == false) {
+		DFSUtil(v, visited);
+		cout << "\n";
+		}
+		}
+		delete[] visited;
+		}
+		void Graph::DFSUtil(int v, bool visited[])
+		{
+		visited[v] = true;
+		cout << v << " ";
+		list<int>::iterator i;
+		for (i = adj[v].begin(); i != adj[v].end(); ++i)
+		if (!visited[*i])
+		
+		DFSUtil(*i, visited);
+		}
+		Graph::Graph(int V)
+		{
+		this->V = V;
+		adj = new list<int>[V];
+		}
+		Graph::~Graph() { delete[] adj; }
+		void Graph::addEdge(int v, int w)
+		{
+		adj[v].push_back(w);
+		adj[w].push_back(v);
+		}
+		int main()
+		{
+		Graph g(5); 
+		g.addEdge(1, 0);
+		g.addEdge(2, 3);
+		g.addEdge(3, 4);
+		cout << "Following are connected components \n";
+		g.connectedComponents();
+		return 0;
+		}
+image
